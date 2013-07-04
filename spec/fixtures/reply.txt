@@ -1,0 +1,24 @@
+envelope[from]  lbspen@gmail.com
+envelope[helo_domain] mail-ea0-f174.google.com
+envelope[recipients][0] db0a4a9cce22e0d15fc0@cloudmailin.net
+envelope[remote_ip] 209.85.215.174
+envelope[spf][domain] gmail.com
+envelope[spf][result] neutral
+envelope[to]  db0a4a9cce22e0d15fc0@cloudmailin.net
+headers[DKIM-Signature] v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20120113; h=mime-version:in-reply-to:references:date:message-id:subject:from:to :content-type; bh=D3C9Y0UsDBzunOyia2XieRdAcyvvzorpPfHoX/JVEFg=; b=FiLvdEvGHTtqQ4vMqxNBjnU71VSCYkkdJsR2CegEz63TFuE1rbhnPaaRLBAfdRav1j TBiObUNRb/B3OTdTllueO/m85u24CH1Hb9ARm21whCStwbhs7p0AMcb5KQV84Rv5S2xf BIP51eGR2vIkemDPnzMNhwRs3SirhpGVDTxoEhI3AbTBN6lhh2S9aWUIcLiuQmwzwsIC K+n3Aw1YKMpt04GH+1ZmmxZHt3GYKDcaRWGrlxmkT27t4qhLnHwjRrm67ceG4Ujufi4+ PDpKD5dPJCj1pysPDEI0V+dpEzbvuW3ddSTiK+Edn/M0o08rKdXSWeXqpn+r90/FTibL 82Ng==
+headers[Date] Wed, 12 Jun 2013 14:04:57 -0700
+headers[From] Laurie Spencer <lbspen@gmail.com>
+headers[In-Reply-To]  <51b8e1ca75bd3_e8b5b4591a307ec@lbs-hp.mail>
+headers[Message-ID] <CALkahDHQ3yg=b+q+ZBv52z_wJ3Q7N5jy4OUz3B1L4KTrv-Krbg@mail.gmail.com>
+headers[Mime-Version] 1.0
+headers[Received][0]  by mail-ea0-f174.google.com with SMTP id o10so4022274eaj.19 for <db0a4a9cce22e0d15fc0@cloudmailin.net>; Wed, 12 Jun 2013 14:04:58 -0700
+headers[Received][1]  by 10.14.129.71 with HTTP; Wed, 12 Jun 2013 14:04:57 -0700
+headers[References] <51b8e1ca75bd3_e8b5b4591a307ec@lbs-hp.mail>
+headers[Subject]  Re: New ticket: 14
+headers[To] db0a4a9cce22e0d15fc0@cloudmailin.net
+headers[X-Received] by 10.14.9.136 with SMTP id 8mr23150726eet.37.1371071097857; Wed, 12 Jun 2013 14:04:57 -0700 (PDT)
+html  <div dir="ltr"><div class="gmail_default" style="font-family:verdana,sans-serif">comment</div></div><div class="gmail_extra"><br clear="all"><div>Laurie Spencer<br><a href="http://www.linkedin.com/in/laurieaspencer" target="_blank">www.linkedin.com/in/laurieaspencer</a></div> <br><br><div class="gmail_quote">On Wed, Jun 12, 2013 at 2:02 PM, <span dir="ltr">&lt;<a href="mailto:helpdeskapp@example.com" target="_blank">helpdeskapp@example.com</a>&gt;</span> wrote:<br><blockquote class="gmail_quote" style="margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex"> New ticket submitted.<br> <br> title<br> <br> description<br> </blockquote></div><br></div>
+plain comment Laurie Spencer www.linkedin.com/in/laurieaspencer On Wed, Jun 12, 2013 at 2:02 PM, <helpdeskapp@example.com> wrote: > New ticket submitted. > > title > > description >
+reply_plain comment Laurie Spencer www.linkedin.com/in/laurieaspencer
+
+{ envelope: { from: "lbspen@gmail", to: "dbsdfgksdfjskdj@cloudmailin.net" }, headers: { Subject: "Re: New ticket: 14" }, reply_plain: "comment" }

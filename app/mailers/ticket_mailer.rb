@@ -1,5 +1,5 @@
 class TicketMailer < ActionMailer::Base
-  default from: "helpdeskapp@example.com"
+  default :from => "helpdeskuser@example.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -9,7 +9,18 @@ class TicketMailer < ActionMailer::Base
   def submit_ticket(ticket)
     @ticket = ticket
 
-    mail  to: "helpdesk@example.org", 
-          subject: "New ticket: " +  ticket.title
+    mail  :to => "lbspen@gmail.com", 
+          :subject => "Ticket: " +  ticket.id.to_s,
+          :reply_to => "db0a4a9cce22e0d15fc0@cloudmailin.net"
   end
+
+  def receive(email)
+    ticket_id = /Ticket: (\d*)/.match(email.subject)
+    if ticket_id && $1
+      ticket = Ticket.find($1.to_i)
+      ticket.description << email.body.decoded
+      ticket
+    end
+  end
+
 end

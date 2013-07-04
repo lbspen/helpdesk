@@ -6,7 +6,7 @@ class TicketsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @tickets }
+      #format.json { render json: @tickets }
     end
   end
 
@@ -17,7 +17,7 @@ class TicketsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @ticket }
+      # format.json { render json: @ticket }
     end
   end
 
@@ -28,7 +28,7 @@ class TicketsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @ticket }
+      # format.json { render json: @ticket }
     end
   end
 
@@ -41,16 +41,11 @@ class TicketsController < ApplicationController
   # POST /tickets.json
   def create
     @ticket = Ticket.new(params[:ticket])
-
-    respond_to do |format|
-      if @ticket.save
-        TicketMailer.submit_ticket(@ticket).deliver
-        format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }
-        format.json { render json: @ticket, status: :created, location: @ticket }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @ticket.errors, status: :unprocessable_entity }
-      end
+    if @ticket.save
+      TicketMailer.submit_ticket(@ticket).deliver
+      redirect_to @ticket, :notice => 'Ticket was successfully created.' 
+    else
+      render :action => "new"
     end
   end
 
@@ -61,11 +56,11 @@ class TicketsController < ApplicationController
 
     respond_to do |format|
       if @ticket.update_attributes(params[:ticket])
-        format.html { redirect_to @ticket, notice: 'Ticket was successfully updated.' }
-        format.json { head :no_content }
+        format.html { redirect_to @ticket, :notice => 'Ticket was successfully updated.' }
+        # format.json { head :no_content }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @ticket.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        # format.json { render json: @ticket.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -81,4 +76,5 @@ class TicketsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end

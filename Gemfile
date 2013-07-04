@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.0.0"
+
 gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
@@ -18,6 +20,23 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
+
+group :test, :development do
+  gem 'rspec-rails', '~> 2.11'
+  gem 'pry-rails'
+  gem 'pry-debugger'
+  gem 'pry-doc'
+  gem 'launchy'
+  gem 'meta_request'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'assert_difference'
+end
+
+group :test do
+  gem 'factory_girl'
+end
+
 
 gem "letter_opener", :group => :development
 
