@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :ticket do
     title "It's broken"
-    description "Nothing works"
+    description "why me"
   end
 end

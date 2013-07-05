@@ -169,6 +169,7 @@ DEPENDENCIES
   letter_opener
   meta_request
   pg
+  pry
   pry-debugger
   pry-doc
   pry-rails

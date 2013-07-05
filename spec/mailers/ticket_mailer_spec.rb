@@ -7,13 +7,18 @@ describe TicketMailer do
   end
 
   let!(:ticket) { Factory.create(:ticket, :id => 1) }
-  let!(:mail) { TicketMailer.submit_ticket(ticket) }
-  
+  let!(:email) { TicketMailer.submit_ticket(ticket) }
+
   it "appends to existing ticket", :current => true do
-    updated_ticket = TicketMailer.receive(mail)
+    original_description = ticket.description
+    reply = email.clone
+    reply.reply_plain = "something else"
+    updated_ticket = TicketMailer.receive(reply)
     updated_ticket.should_not be_nil
     updated_ticket.should be_an_instance_of(Ticket)
-    updated_ticket.description.should include(mail.body.decoded)
+    updated_ticket.should == ticket
+    updated_ticket.description.should include(original_description)
+    updated_ticket.description.should include(reply.reply_plain)
   end
 
   it "ignores invalid ids" do
