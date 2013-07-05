@@ -18,9 +18,10 @@ class TicketMailer < ActionMailer::Base
 
   def receive(email)
     logger.info "TicketMailer - received an email"
-    logger.info email
-    @@lastReceipt = email
+    logger.info "subject" + email.subject
     ticket_id = /Ticket: (\d*)/.match(email.subject)
+    logger.info "ticket_id: " + ticket_id
+    logger.info "$1: " + $1
     if ticket_id && $1
       ticket = Ticket.find($1.to_i)
       ticket.description << email.body.decoded
