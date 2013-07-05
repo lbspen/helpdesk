@@ -18,8 +18,7 @@ class TicketMailer < ActionMailer::Base
 
   def receive(email)
     logger.info "TicketMailer - received an email"
-    logger.info email.subject
-    ticket_id = /Ticket: (\d*)/.match(email.subject)
+    ticket_id = /Ticket: (\d*)/.match(email)
     logger.info ticket_id
     logger.info $1
     logger.info "TicketMailer - done"
