@@ -15,7 +15,7 @@ class TicketMailer < ActionMailer::Base
   end
 
   def receive(email)
-    binding.pry
+    @lastReceipt = email
     ticket_id = /Ticket: (\d*)/.match(email.subject)
     if ticket_id && $1
       ticket = Ticket.find($1.to_i)
