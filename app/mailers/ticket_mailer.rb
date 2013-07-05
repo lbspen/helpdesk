@@ -22,7 +22,8 @@ class TicketMailer < ActionMailer::Base
     if ticket_id && $1
       ticket = Ticket.find($1.to_i)
       logger.info "description before: #{ticket.description}"
-      logger.info "email.parts: #{email.parts}"
+      logger.info "email.header: #{email.header}"
+      logger.info "email.body: #{email.body}"
       ticket.description << email.body.decoded
       logger.info "description after: #{ticket.description}"
       ticket
