@@ -15,13 +15,17 @@ class TicketMailer < ActionMailer::Base
   end
 
   def receive(email)
-    @lastReceipt = email
+    @@lastReceipt = email
     ticket_id = /Ticket: (\d*)/.match(email.subject)
     if ticket_id && $1
       ticket = Ticket.find($1.to_i)
       ticket.description << email.body.decoded
       ticket
     end
+  end
+
+  def self.last
+    @@lastReceipt
   end
 
 end
