@@ -2,7 +2,7 @@ class TicketMailer < ActionMailer::Base
   default :from => "helpdeskuser@example.com"
 
   @@lastReceipt = nil
-  
+
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
@@ -17,6 +17,7 @@ class TicketMailer < ActionMailer::Base
   end
 
   def receive(email)
+    puts "received an email"
     @@lastReceipt = email
     ticket_id = /Ticket: (\d*)/.match(email.subject)
     if ticket_id && $1
