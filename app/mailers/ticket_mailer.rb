@@ -17,7 +17,7 @@ class TicketMailer < ActionMailer::Base
   end
 
   def receive(email)
-    puts "received an email"
+    logger.info "TicketMailer - received an email"
     @@lastReceipt = email
     ticket_id = /Ticket: (\d*)/.match(email.subject)
     if ticket_id && $1
