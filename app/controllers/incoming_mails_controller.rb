@@ -2,7 +2,7 @@ class IncomingMailsController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def create
-    logger.info puts params
+    logger.info params
     ticket = TicketMailer.receive(Mail.new(params[:message]))
     if (ticket)
       render :text => 'success', :status => 200
