@@ -4,7 +4,7 @@ class IncomingMailsController < ApplicationController
 
   def create
     logger.info "incomingmailscontroller#create params[:plain]: #{params[:plain]}"
-    logger.info "incomingmailscontroller#create params[:html]: #{params[:header]["Subject"]}"
+    logger.info "incomingmailscontroller#create params[:headers]: #{params[:headers]["Subject"]}"
     ticket = TicketMailer.receive(Mail.new(params))
     if (ticket)
       render :text => 'success', :status => 200
