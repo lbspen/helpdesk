@@ -3,8 +3,7 @@ class IncomingMailsController < ApplicationController
 
   def create
     logger.info "IncomingMailsController#create"
-    logger.info PP::pp(params)
-    logger.info PP::pp(params[:plain])
+    logger.info PP::pp(params.keys)
     ticket = TicketMailer.receive(params[:plain])
     if (ticket)
       render :text => 'success', :status => 200
