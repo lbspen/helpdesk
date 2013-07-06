@@ -14,7 +14,7 @@ describe TicketsController do
     end
     ticket_email = ActionMailer::Base.deliveries.last
  
-    assert_match /New ticket/, ticket_email.subject
-    assert_match(/#{title}.*#{description}/m, ticket_email.decode_body)
+    assert_match /Ticket:/, ticket_email.subject
+    assert_match /#{title}.*#{description}/m, ticket_email.decode_body
   end
 end

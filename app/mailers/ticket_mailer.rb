@@ -16,22 +16,13 @@ class TicketMailer < ActionMailer::Base
           :reply_to => "db0a4a9cce22e0d15fc0@cloudmailin.net"
   end
 
-  def receive(email)
-    logger.info "TicketMailer - received an email"
-    ticket_id = /Ticket: (\d*)/.match(email.subject)
-    if ticket_id && $1
-      ticket = Ticket.find($1.to_i)
-      logger.info "description before: #{ticket.description}"
-      logger.info "email.header :plain: #{email.header :plain}"
-      logger.info "email.header plain: #{email.header plain}"
-      ticket.description << email.header[plain]
-      logger.info "description after: #{ticket.description}"
-      ticket
-    end
-  end
-
-  def self.last
-    @@lastReceipt
-  end
+  # def receive(email)
+  #   logger.info "TicketMailer - received an email"
+  #   if ticket_id && $1
+  #     ticket = Ticket.find($1.to_i)
+  #     ticket.description << email.header[plain]
+  #     ticket
+  #   end
+  # end
 
 end
